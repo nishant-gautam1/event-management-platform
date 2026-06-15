@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tech Innovation Summit 2025 – Join 500+ innovators in Mohali for workshops, panels, and networking. Register now for the premier tech event of the year.">
+    <meta name="keywords" content="Tech Innovation Summit, 2025, technology conference, AI workshop, speakers, registration, Mohali">
+    <meta name="author" content="Tech Innovation Summit">
+    <title>Tech Innovation Summit 2025 | Mohali</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animate on Scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-bolt"></i></span>
+                <span class="logo-text">TIS<span class="logo-accent">2025</span></span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#schedule" class="nav-link">Schedule</a></li>
+                <li><a href="#speakers" class="nav-link">Speakers</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#venue" class="nav-link">Venue</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link legal-link" data-modal="adminLoginModal">Admin Portal</a></li>
+                <li><a href="#register" class="nav-link nav-cta">Register Now</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-orbs">
+            <div class="hero-orb orb-1"></div>
+            <div class="hero-orb orb-2"></div>
+            <div class="hero-orb orb-3"></div>
+        </div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-down" data-aos-delay="100">
+                <i class="fas fa-calendar-alt"></i>
+                <span>15 August 2025 • Mohali, India</span>
+            </div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                <span class="text-reveal">Tech Innovation</span><br><span class="gradient-text text-reveal">Summit 2025</span><span class="typing-cursor">|</span>
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
+                Where visionary minds converge to shape the future of technology.<br>
+                Join 500+ innovators, 20 world-class speakers, and 15 transformative sessions.
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="countdown" data-aos="fade-up" data-aos-delay="400" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countDays">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countHours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countMinutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countSeconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="500">
+                <a href="#register" class="btn btn-primary btn-magnetic">
+                    <span class="btn-ripple"></span>
+                    <i class="fas fa-ticket-alt"></i> Register Now
+                </a>
+                <a href="#schedule" class="btn btn-outline btn-magnetic">
+                    <span class="btn-ripple"></span>
+                    <i class="fas fa-calendar"></i> View Schedule
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#about"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- ===================== STATS BAR ===================== -->
+    <section class="stats-bar" id="statsBar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Attendees</span>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Speakers</span>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Sessions</span>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-icon"><i class="fas fa-handshake"></i></div>
+                    <span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Partners</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag"><i class="fas fa-info-circle"></i> About The Event</span>
+                <h2 class="section-title">Why Attend <span class="gradient-text">TIS 2025</span>?</h2>
+                <p class="section-subtitle">More than a conference — it's a movement to push technology forward.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card tilt-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-card-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Explore cutting-edge AI research, hands-on workshops on LLMs, computer vision, and building intelligent systems for real-world impact.</p>
+                </div>
+                <div class="about-card tilt-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-card-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Networking Lounge</h3>
+                    <p>Connect with founders, CTOs, and engineers from top companies. Build relationships that last beyond the summit.</p>
+                </div>
+                <div class="about-card tilt-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="about-card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Startup Showcase</h3>
+                    <p>Pitch your ideas, get feedback from investors, and discover the next unicorn. Early-stage startups welcome.</p>
+                </div>
+                <div class="about-card tilt-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="about-card-icon"><i class="fas fa-code"></i></div>
+                    <h3>Hackathon Arena</h3>
+                    <p>24-hour hackathon with prizes worth ₹5,00,000. Build, break, and innovate alongside the best minds in tech.</p>
+                </div>
+                <div class="about-card tilt-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="about-card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Cybersecurity Lab</h3>
+                    <p>Dive into ethical hacking, threat intelligence, and zero-trust architectures. Hands-on labs with industry experts.</p>
+                </div>
+                <div class="about-card tilt-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="about-card-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Master modern infrastructure: Kubernetes, serverless, CI/CD pipelines, and multi-cloud strategies from practitioners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SCHEDULE ===================== -->
+    <section class="section schedule" id="schedule">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag"><i class="fas fa-calendar-alt"></i> Event Schedule</span>
+                <h2 class="section-title">A Day of <span class="gradient-text">Innovation</span></h2>
+                <p class="section-subtitle">Curated sessions designed to inspire, educate, and connect.</p>
+            </div>
+
+            <!-- Event Filters -->
+            <div class="filter-bar" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="workshop">Workshops</button>
+                <button class="filter-btn" data-filter="seminar">Seminars</button>
+                <button class="filter-btn" data-filter="networking">Networking</button>
+            </div>
+
+            <div class="timeline" id="scheduleTimeline">
+                <!-- 9:00 AM -->
+                <div class="timeline-item" data-category="seminar" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot"><i class="fas fa-door-open"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-time">
+                            <i class="fas fa-clock"></i> 9:00 AM – 9:30 AM
+                        </div>
+                        <h3>Registration & Welcome Coffee</h3>
+                        <p>Check-in, collect your event kit, and kickstart your day with premium coffee and networking.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag-seminar">Opening</span>
+                            <span class="tag tag-location"><i class="fas fa-map-marker-alt"></i> Main Hall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9:30 AM -->
+                <div class="timeline-item" data-category="seminar" data-aos="fade-up" data-aos-delay="150">
+                    <div class="timeline-dot"><i class="fas fa-flag"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-time">
+                            <i class="fas fa-clock"></i> 9:30 AM – 10:00 AM
+                        </div>
+                        <h3>Opening Ceremony & Keynote</h3>
+                        <p>Inaugural address by Dr. Priya Sharma on "The Next Decade of AI and Its Impact on Society".</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag-seminar">Seminar</span>
+                            <span class="tag tag-location"><i class="fas fa-map-marker-alt"></i> Auditorium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10:00 AM -->
+                <div class="timeline-item" data-category="workshop" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"><i class="fas fa-robot"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-time">
+                            <i class="fas fa-clock"></i> 10:00 AM – 12:00 PM
+                        </div>
+                        <h3>Hands-on AI & LLM Workshop</h3>
+                        <p>Build your own chatbot using GPT APIs. Covers prompt engineering, fine-tuning, and RAG architectures.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag-workshop">Workshop</span>
+                            <span class="tag tag-location"><i class="fas fa-map-marker-alt"></i> Lab 1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12:00 PM -->
+                <div class="timeline-item" data-category="networking" data-aos="fade-up" data-aos-delay="250">
+                    <div class="timeline-dot"><i class="fas fa-utensils"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-time">
+                            <i class="fas fa-clock"></i> 12:00 PM – 1:00 PM
+                        </div>
+                        <h3>Lunch & Networking</h3>
+                        <p>Curated networking tables by interest — AI, Web3, Cloud, Security. Meet your tribe over gourmet lunch.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag-networking">Networking</span>
+                            <span class="tag tag-location"><i class="fas fa-map-marker-alt"></i> Terrace Garden</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1:00 PM -->
+                <div class="timeline-item" data-category="seminar" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-dot"><i class="fas fa-comments"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-time">
+                            <i class="fas fa-clock"></i> 1:00 PM – 2:30 PM
+                        </div>
+                        <h3>Panel: Future of Work in AI Era</h3>
+                        <p>Industry leaders discuss how AI is reshaping jobs, skills, and the future of human-AI collaboration.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag-seminar">Seminar</span>
+                            <span class="tag tag-location"><i class="fas fa-map-marker-alt"></i> Auditorium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2:30 PM -->
+                <div class="timeline-item" data-category="workshop" data-aos="fade-up" data-aos-delay="350">
+                    <div class="timeline-dot"><i class="fas fa-shield-alt"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-time">
+                            <i class="fas fa-clock"></i> 2:30 PM – 4:30 PM
+                        </div>
+                        <h3>Cybersecurity Capture the Flag</h3>
+                        <p>Live CTF competition. Test your hacking skills in a safe environment with real-world scenarios.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag-workshop">Workshop</span>
+                            <span class="tag tag-location"><i class="fas fa-map-marker-alt"></i> Lab 2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4:30 PM -->
+                <div class="timeline-item" data-category="seminar" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-dot"><i class="fas fa-rocket"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-time">
+                            <i class="fas fa-clock"></i> 4:30 PM – 5:30 PM
+                        </div>
+                        <h3>Startup Pitch Competition</h3>
+                        <p>Top 10 startups pitch to a panel of VCs and angel investors. Winner receives ₹2,00,000 seed funding.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag-seminar">Seminar</span>
+                            <span class="tag tag-location"><i class="fas fa-map-marker-alt"></i> Auditorium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5:30 PM -->
+                <div class="timeline-item" data-category="networking" data-aos="fade-up" data-aos-delay="450">
+                    <div class="timeline-dot"><i class="fas fa-glass-cheers"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-time">
+                            <i class="fas fa-clock"></i> 5:30 PM – 7:00 PM
+                        </div>
+                        <h3>Closing Ceremony & After-Party</h3>
+                        <p>Award distribution, closing keynote, and an unforgettable after-party with live music and mocktails.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag-networking">Networking</span>
+                            <span class="tag tag-location"><i class="fas fa-map-marker-alt"></i> Rooftop Lounge</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SPEAKERS ===================== -->
+    <section class="section speakers" id="speakers">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag"><i class="fas fa-microphone-alt"></i> Featured Speakers</span>
+                <h2 class="section-title">Meet the <span class="gradient-text">Visionaries</span></h2>
+                <p class="section-subtitle">World-class experts sharing insights that will redefine your perspective.</p>
+            </div>
+
+            <!-- Speaker Search -->
+            <div class="speaker-search" data-aos="fade-up" data-aos-delay="100">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="speakerSearch" placeholder="Search speakers by name or expertise..." autocomplete="off">
+                    <button class="search-clear" id="searchClear" style="display:none"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+
+            <div class="speakers-grid" id="speakersGrid">
+
+                <div class="speaker-card" data-name="Dr. Priya Sharma" data-expertise="artificial intelligence" data-aos="fade-up" data-aos-delay="100">
+                    <div class="speaker-img-wrapper">
+                        <div class="speaker-img-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="speaker-overlay">
+                            <div class="speaker-socials">
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Dr. Priya Sharma</h3>
+                        <p class="speaker-role">Chief AI Scientist, TechCorp India</p>
+                        <p class="speaker-topic"><i class="fas fa-microphone"></i> The Next Decade of AI</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card" data-name="Arjun Mehta" data-expertise="cloud computing devops" data-aos="fade-up" data-aos-delay="150">
+                    <div class="speaker-img-wrapper">
+                        <div class="speaker-img-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="speaker-overlay">
+                            <div class="speaker-socials">
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Website"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Arjun Mehta</h3>
+                        <p class="speaker-role">VP of Engineering, CloudNine</p>
+                        <p class="speaker-topic"><i class="fas fa-microphone"></i> Scaling to 1M Users</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card" data-name="Sneha Patel" data-expertise="cybersecurity ethical hacking" data-aos="fade-up" data-aos-delay="200">
+                    <div class="speaker-img-wrapper">
+                        <div class="speaker-img-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="speaker-overlay">
+                            <div class="speaker-socials">
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Sneha Patel</h3>
+                        <p class="speaker-role">Head of Security, ShieldNet</p>
+                        <p class="speaker-topic"><i class="fas fa-microphone"></i> Zero Trust Architecture</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card" data-name="Rahul Verma" data-expertise="web3 blockchain" data-aos="fade-up" data-aos-delay="250">
+                    <div class="speaker-img-wrapper">
+                        <div class="speaker-img-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="speaker-overlay">
+                            <div class="speaker-socials">
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Website"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Rahul Verma</h3>
+                        <p class="speaker-role">Founder & CEO, ChainLabs</p>
+                        <p class="speaker-topic"><i class="fas fa-microphone"></i> Web3 Beyond the Hype</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card" data-name="Ananya Iyer" data-expertise="product design ux" data-aos="fade-up" data-aos-delay="300">
+                    <div class="speaker-img-wrapper">
+                        <div class="speaker-img-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="speaker-overlay">
+                            <div class="speaker-socials">
+                                <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Ananya Iyer</h3>
+                        <p class="speaker-role">Design Lead, PixelCraft Studio</p>
+                        <p class="speaker-topic"><i class="fas fa-microphone"></i> Designing for Billions</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card" data-name="Vikram Singh" data-expertise="startup entrepreneurship venture capital" data-aos="fade-up" data-aos-delay="350">
+                    <div class="speaker-img-wrapper">
+                        <div class="speaker-img-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="speaker-overlay">
+                            <div class="speaker-socials">
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Website"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Vikram Singh</h3>
+                        <p class="speaker-role">Managing Partner, NexGen Ventures</p>
+                        <p class="speaker-topic"><i class="fas fa-microphone"></i> From Idea to IPO</p>
+                    </div>
+                </div>
+            </div>
+            <p class="no-results" id="noSpeakerResults" style="display:none;">No speakers found matching your search.</p>
+        </div>
+    </section>
+
+    <!-- ===================== REGISTER ===================== -->
+    <section class="section register" id="register">
+        <div class="container">
+            <div class="register-wrapper">
+                <div class="register-info" data-aos="fade-right">
+                    <span class="section-tag"><i class="fas fa-ticket-alt"></i> Secure Your Spot</span>
+                    <h2 class="section-title">Register for <span class="gradient-text">TIS 2025</span></h2>
+                    <p>Early bird registration is open! Seats are limited — reserve yours today and be part of India's most impactful tech summit.</p>
+                    <div class="register-perks">
+                        <div class="perk-item"><i class="fas fa-check-circle"></i><span>Full-day access to all sessions</span></div>
+                        <div class="perk-item"><i class="fas fa-check-circle"></i><span>Premium event kit & swag</span></div>
+                        <div class="perk-item"><i class="fas fa-check-circle"></i><span>Networking lounge access</span></div>
+                        <div class="perk-item"><i class="fas fa-check-circle"></i><span>Certificate of participation</span></div>
+                        <div class="perk-item"><i class="fas fa-check-circle"></i><span>Lunch & refreshments included</span></div>
+                        <div class="perk-item"><i class="fas fa-check-circle"></i><span>Post-event recording access</span></div>
+                    </div>
+                </div>
+                <div class="register-form-container" data-aos="fade-left">
+                    <form class="register-form" id="registrationForm" novalidate>
+                        <h3>Create Your Ticket</h3>
+                        <div class="form-group">
+                            <label for="regName"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="regName" name="name" placeholder="John Doe" required>
+                            <span class="form-error" id="nameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="regEmail" name="email" placeholder="john@example.com" required>
+                            <span class="form-error" id="emailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPhone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="regPhone" name="phone" placeholder="+91 943xxxxx" required>
+                            <span class="form-error" id="phoneError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regOrg"><i class="fas fa-building"></i> Organization</label>
+                            <input type="text" id="regOrg" name="organization" placeholder="Your Company / University">
+                            <span class="form-error" id="orgError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEvent"><i class="fas fa-calendar-check"></i> Select Event</label>
+                            <select id="regEvent" name="event" required>
+                                <option value="" disabled selected>Choose an event</option>
+                                <option value="full-day">Full Day Pass (All Sessions)</option>
+                                <option value="ai-workshop">AI & LLM Workshop</option>
+                                <option value="cybersecurity-ctf">Cybersecurity CTF</option>
+                                <option value="startup-pitch">Startup Pitch Competition</option>
+                                <option value="networking-only">Networking & After-Party Only</option>
+                            </select>
+                            <span class="form-error" id="eventError"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full btn-magnetic" id="registerSubmitBtn">
+                            <span class="btn-ripple"></span>
+                            <i class="fas fa-paper-plane"></i> Register Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== VENUE ===================== -->
+    <section class="section venue" id="venue">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag"><i class="fas fa-map-marker-alt"></i> Event Venue</span>
+                <h2 class="section-title">Find Your <span class="gradient-text">Way Here</span></h2>
+                <p class="section-subtitle">Join us at one of Mohali's premier technology workspaces.</p>
+            </div>
+            <div class="venue-grid">
+                <div class="venue-map" data-aos="fade-right">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.4101968840746!2d76.70545717549661!3d30.712431075662575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fef7b48418d6b%3A0x8b24ec380ed85440!2sZiion%20Technology%20-%20Software%20Company%20in%20Mohali!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style="border:0; border-radius: 16px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Event Venue Map"
+                    ></iframe>
+                </div>
+                <div class="venue-details" data-aos="fade-left">
+                    <div class="venue-info-card">
+                        <div class="venue-icon"><i class="fas fa-building"></i></div>
+                        <div>
+                            <h3>Ziion Technology</h3>
+                            <p>State-of-the-art software workspace in Mohali</p>
+                        </div>
+                    </div>
+                    <div class="venue-info-card">
+                        <div class="venue-icon"><i class="fas fa-map-pin"></i></div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>F-301, Phase 8B, Industrial Area, Sector 74,<br>Mohali, Punjab – 140308, India</p>
+                        </div>
+                    </div>
+                    <div class="venue-info-card">
+                        <div class="venue-icon"><i class="fas fa-route"></i></div>
+                        <div>
+                            <h3>Directions</h3>
+                            <p>Easily accessible via Mohali Bypass road.<br><a href="https://maps.app.goo.gl/w5PoCdx6Vt57URsC6" target="_blank" style="color: var(--primary); text-decoration: underline; font-weight: 500;">Open in Google Maps <i class="fas fa-external-link-alt" style="font-size:0.8rem;"></i></a></p>
+                        </div>
+                    </div>
+                    <div class="venue-info-card">
+                        <div class="venue-icon"><i class="fas fa-car"></i></div>
+                        <div>
+                            <h3>Parking</h3>
+                            <p>Free underground parking is available for registered summit attendees.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag"><i class="fas fa-envelope"></i> Get In Touch</span>
+                <h2 class="section-title">Have <span class="gradient-text">Questions</span>?</h2>
+                <p class="section-subtitle">We'd love to hear from you. Reach out and we'll get back within 24 hours.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>xyz@gmail.com</p>
+                            <p>xyz@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+91 943xxxxx</p>
+                            <p>+91 943xxxxx</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Monday – Friday</p>
+                            <p>9:00 AM – 6:00 PM IST</p>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="contactName"><i class="fas fa-user"></i> Your Name</label>
+                            <input type="text" id="contactName" name="name" placeholder="Your full name" required>
+                            <span class="form-error" id="contactNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail"><i class="fas fa-envelope"></i> Your Email</label>
+                            <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required>
+                            <span class="form-error" id="contactEmailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject"><i class="fas fa-tag"></i> Subject</label>
+                            <input type="text" id="contactSubject" name="subject" placeholder="How can we help?" required>
+                            <span class="form-error" id="contactSubjectError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage"><i class="fas fa-comment-dots"></i> Message</label>
+                            <textarea id="contactMessage" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                            <span class="form-error" id="contactMessageError"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="contactSubmitBtn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag"><i class="fas fa-question-circle"></i> FAQs</span>
+                <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p class="section-subtitle">Everything you need to know about TIS 2025. Can't find your answer? Contact us!</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fas fa-ticket-alt faq-q-icon"></i> What is included in the registration fee?</span>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Your registration includes full-day access to all sessions, workshops, networking events, lunch & refreshments, a premium event kit with swag, a certificate of participation, and post-event recording access. VIP passes also include priority seating and a meet-and-greet with speakers.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fas fa-calendar-check faq-q-icon"></i> When and where is the event?</span>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tech Innovation Summit 2025 will be held on <strong>August 15, 2025</strong> at <strong>Ziion Technology, Mohali</strong>. Doors open at 9:00 AM and the event runs until 7:00 PM, followed by an after-party until 9:00 PM.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fas fa-undo faq-q-icon"></i> Can I get a refund if I can't attend?</span>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Full refunds are available up to 30 days before the event. 50% refunds are available up to 15 days before. After that, you can transfer your ticket to someone else at no extra cost. Contact <strong>xyz@gmail.com</strong> for assistance.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fas fa-laptop-code faq-q-icon"></i> Do I need to bring my own laptop for workshops?</span>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we recommend bringing your own laptop for the hands-on workshops (AI/LLM Workshop and Cybersecurity CTF). We'll provide Wi-Fi, power outlets, and any required software instructions via email before the event. Lab machines will also be available on a first-come basis.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fas fa-parking faq-q-icon"></i> Is parking available at the venue?</span>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, free parking is available for all registered attendees. The nearest landmark is the Mohali Industrial Area. We recommend using public transit or local taxi services to reach the venue.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fas fa-user-plus faq-q-icon"></i> Can I volunteer or speak at the event?</span>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We're always looking for passionate volunteers and speakers. Volunteers get free entry, exclusive behind-the-scenes access, and a special certificate. For speaking opportunities, submit a proposal at <strong>xyz@gmail.com</strong>. Volunteer applications close July 30, 2025.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path fill="currentColor" d="M0,40 C360,100 720,0 1080,60 C1260,90 1380,50 1440,40 L1440,100 L0,100 Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <span class="logo-icon"><i class="fas fa-bolt"></i></span>
+                        <span class="logo-text">TIS<span class="logo-accent">2025</span></span>
+                    </a>
+                    <p>India's premier technology summit bringing together innovators, builders, and dreamers.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Event</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#speakers">Speakers</a></li>
+                        <li><a href="#register">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#faq">FAQs</a></li>
+                        <li><a href="#" class="legal-link" data-modal="cocModal">Code of Conduct</a></li>
+                        <li><a href="#" class="legal-link" data-modal="privacyModal">Privacy Policy</a></li>
+                        <li><a href="#" class="legal-link" data-modal="termsModal">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> xyz@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +91 943xxxxx</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mohali, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tech Innovation Summit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== REGISTRATION SUCCESS MODAL ===================== -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon"><i class="fas fa-check-circle"></i></div>
+            <h2>Registration Successful!</h2>
+            <p>Thank you for registering for <strong>Tech Innovation Summit 2025</strong>. A confirmation email has been sent to your inbox.</p>
+            <div class="modal-ticket">
+                <div class="ticket-row"><span>Name:</span><span id="ticketName">—</span></div>
+                <div class="ticket-row"><span>Email:</span><span id="ticketEmail">—</span></div>
+                <div class="ticket-row"><span>Event:</span><span id="ticketEvent">—</span></div>
+                <div class="ticket-row"><span>Ticket #:</span><span id="ticketNumber">—</span></div>
+            </div>
+            <button class="btn btn-primary" id="closeModal">
+                <i class="fas fa-times"></i> Close
+            </button>
+        </div>
+    </div>
+
+    <!-- ===================== BACK TO TOP ===================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ===================== TERMS & CONDITIONS MODAL ===================== -->
+    <div class="modal-overlay legal-modal" id="termsModal">
+        <div class="modal-content legal-content">
+            <button class="legal-close" data-close-modal><i class="fas fa-times"></i></button>
+            <div class="legal-header">
+                <div class="legal-icon"><i class="fas fa-file-contract"></i></div>
+                <h2>Terms & Conditions</h2>
+                <p class="legal-updated">Last Updated: June 1, 2025</p>
+            </div>
+            <div class="legal-body">
+                <h3>1. Acceptance of Terms</h3>
+                <p>By registering for and attending the Tech Innovation Summit 2025 ("TIS 2025" or "Event"), you agree to be bound by these Terms and Conditions. If you do not agree, please refrain from registering or attending.</p>
+
+                <h3>2. Registration & Tickets</h3>
+                <p>All registrations are subject to availability. A confirmation email will serve as your e-ticket. Registration is non-transferable without prior written consent from the organizers. The organizers reserve the right to refuse entry to any individual.</p>
+
+                <h3>3. Payment & Refund Policy</h3>
+                <p>Full refunds are available up to 30 days before the event date. A 50% refund is available between 15-30 days before the event. No refunds will be issued less than 15 days prior to the event. Ticket transfers to another individual are permitted up to 7 days before the event at no additional cost.</p>
+
+                <h3>4. Event Changes</h3>
+                <p>The organizers reserve the right to modify the event schedule, speakers, venue, or format at any time without prior notice. In the event of cancellation by the organizers, a full refund will be issued within 14 business days.</p>
+
+                <h3>5. Code of Conduct</h3>
+                <p>All attendees are expected to behave professionally and respectfully. Harassment, discrimination, or disruptive behavior of any kind will result in immediate removal from the event without refund. Please refer to our full Code of Conduct for details.</p>
+
+                <h3>6. Intellectual Property</h3>
+                <p>All content presented at TIS 2025, including presentations, materials, and recordings, is the intellectual property of the respective speakers and/or TIS 2025. Unauthorized recording, reproduction, or distribution is prohibited.</p>
+
+                <h3>7. Photography & Recordings</h3>
+                <p>By attending TIS 2025, you consent to being photographed, filmed, or recorded. These media may be used for promotional purposes across our website, social media, and marketing materials.</p>
+
+                <h3>8. Liability</h3>
+                <p>TIS 2025 organizers shall not be liable for any personal injury, property damage, or loss incurred during the event. Attendees participate at their own risk. The organizers recommend attendees obtain their own travel and health insurance.</p>
+
+                <h3>9. Data Protection</h3>
+                <p>Your personal data will be processed in accordance with our Privacy Policy and applicable data protection laws. By registering, you consent to the collection and processing of your data for event-related purposes.</p>
+
+                <h3>10. Governing Law</h3>
+                <p>These Terms and Conditions shall be governed by the laws of India. Any disputes arising shall be subject to the exclusive jurisdiction of the courts of Mohali.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== PRIVACY POLICY MODAL ===================== -->
+    <div class="modal-overlay legal-modal" id="privacyModal">
+        <div class="modal-content legal-content">
+            <button class="legal-close" data-close-modal><i class="fas fa-times"></i></button>
+            <div class="legal-header">
+                <div class="legal-icon"><i class="fas fa-shield-alt"></i></div>
+                <h2>Privacy Policy</h2>
+                <p class="legal-updated">Last Updated: June 1, 2025</p>
+            </div>
+            <div class="legal-body">
+                <h3>1. Information We Collect</h3>
+                <p>We collect information that you provide directly to us during registration, including your name, email address, phone number, organization, and event preferences. We also automatically collect certain information when you visit our website, including IP address, browser type, and usage data.</p>
+
+                <h3>2. How We Use Your Information</h3>
+                <p>We use the information we collect to: process your event registration, send you event updates and confirmations, improve our services and website, communicate with you about the event, comply with legal obligations, and send you marketing communications (with your consent).</p>
+
+                <h3>3. Information Sharing</h3>
+                <p>We do not sell, trade, or rent your personal information to third parties. We may share your information with: event partners and sponsors (with your consent), service providers who assist in organizing the event, and law enforcement when required by law.</p>
+
+                <h3>4. Data Security</h3>
+                <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.</p>
+
+                <h3>5. Cookies</h3>
+                <p>Our website uses cookies to enhance your browsing experience, analyze site traffic, and personalize content. You can control cookie preferences through your browser settings. Essential cookies are required for the website to function properly.</p>
+
+                <h3>6. Your Rights</h3>
+                <p>You have the right to: access your personal data, request correction of inaccurate data, request deletion of your data, object to processing of your data, request data portability, and withdraw consent at any time.</p>
+
+                <h3>7. Data Retention</h3>
+                <p>We retain your personal data for as long as necessary to fulfill the purposes for which it was collected, typically up to 2 years after the event. After this period, your data will be securely deleted or anonymized.</p>
+
+                <h3>8. Children's Privacy</h3>
+                <p>Our services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us immediately.</p>
+
+                <h3>9. Changes to This Policy</h3>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the updated policy on our website and sending a notification to your registered email address.</p>
+
+                <h3>10. Contact Us</h3>
+                <p>For any questions about this Privacy Policy or to exercise your rights, contact our Data Protection Officer at <strong>xyz@gmail.com</strong> or call <strong>+91 943xxxxx</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== CODE OF CONDUCT MODAL ===================== -->
+    <div class="modal-overlay legal-modal" id="cocModal">
+        <div class="modal-content legal-content">
+            <button class="legal-close" data-close-modal><i class="fas fa-times"></i></button>
+            <div class="legal-header">
+                <div class="legal-icon"><i class="fas fa-handshake"></i></div>
+                <h2>Code of Conduct</h2>
+                <p class="legal-updated">Effective: January 1, 2025</p>
+            </div>
+            <div class="legal-body">
+                <h3>Our Pledge</h3>
+                <p>Tech Innovation Summit 2025 is dedicated to providing a harassment-free, inclusive, and welcoming experience for everyone, regardless of gender, gender identity, sexual orientation, disability, physical appearance, body size, race, ethnicity, age, religion, or technology choices.</p>
+
+                <h3>Expected Behavior</h3>
+                <p>All participants are expected to: use welcoming and inclusive language, be respectful of differing viewpoints and experiences, gracefully accept constructive criticism, focus on what is best for the community, and show empathy towards other participants.</p>
+
+                <h3>Unacceptable Behavior</h3>
+                <p>The following behaviors are unacceptable: harassment, intimidation, or discrimination in any form; offensive verbal comments related to personal characteristics; inappropriate physical contact or unwelcome sexual attention; deliberate disruption of talks or events; stalking or following; sustained disruption of events; and advocating for or encouraging any of the above.</p>
+
+                <h3>Consequences</h3>
+                <p>Anyone asked to stop unacceptable behavior is expected to comply immediately. If a participant engages in unacceptable behavior, the organizers may take any action they deem appropriate, including warning the offender, expulsion from the event without refund, and banning from future events.</p>
+
+                <h3>Reporting</h3>
+                <p>If you experience or witness unacceptable behavior, or have any other concerns, please report it as soon as possible. You can reach our safety team at <strong>xyz@gmail.com</strong> or speak to any volunteer wearing a yellow badge. All reports will be handled with discretion and confidentiality.</p>
+
+                <h3>Scope</h3>
+                <p>This Code of Conduct applies to all event venues, including the conference hall, workshop rooms, networking areas, after-party, and online platforms associated with TIS 2025. It applies to all participants, speakers, sponsors, volunteers, and organizers.</p>
+
+                <h3>Contact</h3>
+                <p>Event Safety Team: <strong>xyz@gmail.com</strong><br>Emergency Contact: <strong>+91 943xxxxx</strong><br>Anonymous Reporting: Available on-site at the Help Desk.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ADMIN LOGIN MODAL ===================== -->
+    <div class="modal-overlay legal-modal" id="adminLoginModal">
+        <div class="modal-content legal-content" style="max-width: 420px;">
+            <button class="legal-close" data-close-modal id="closeAdminModal"><i class="fas fa-times"></i></button>
+            <div class="legal-header" style="text-align: center; margin-bottom: 1.5rem;">
+                <div class="legal-icon" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0 auto 1rem;"><i class="fas fa-lock" style="font-size: 2.2rem;"></i></div>
+                <h2 style="font-family: var(--font-outfit); font-size: 1.8rem; font-weight: 800;">Admin Portal</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.3rem;">Please enter credentials to open management dashboard.</p>
+            </div>
+            <div class="legal-body">
+                <form id="adminLoginForm" novalidate>
+                    <div class="form-group" style="margin-bottom: 1.2rem; text-align: left;">
+                        <label for="adminUsername" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem; font-weight: 500;"><i class="fas fa-user"></i> Username</label>
+                        <input type="text" id="adminUsername" required placeholder="admin" style="width: 100%; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-color); color: var(--text-main); font-size: 0.95rem;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+                        <label for="adminPassword" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem; font-weight: 500;"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="adminPassword" required placeholder="••••••••" style="width: 100%; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-color); color: var(--text-main); font-size: 0.95rem;">
+                    </div>
+                    <div id="adminLoginError" style="color: var(--danger); font-size: 0.85rem; margin-bottom: 1.2rem; min-height: 1.2rem; text-align: left; display: flex; align-items: center; gap: 0.4rem;"></div>
+                    <button type="submit" class="btn btn-primary btn-full btn-magnetic" id="adminLoginSubmitBtn" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 1rem; font-weight: 600; text-transform: uppercase;">
+                        <span class="btn-ripple"></span>
+                        <i class="fas fa-sign-in-alt"></i> Access Dashboard
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Tech Innovation Summit 2025</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #07040f;
+            --bg-card: rgba(20, 16, 35, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f3f1f6;
+            --text-muted: #a59fb1;
+            --primary: hsl(250, 90%, 65%);
+            --primary-gradient: linear-gradient(135deg, hsl(250, 90%, 65%), hsl(310, 85%, 55%));
+            --success: hsl(150, 80%, 40%);
+            --danger: hsl(350, 80%, 50%);
+            --font-outfit: 'Outfit', sans-serif;
+            --font-inter: 'Inter', sans-serif;
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* Light Theme CSS Variables */
+        [data-theme="light"] {
+            --bg-dark: #f8f7fa;
+            --bg-card: rgba(255, 255, 255, 0.7);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --text-main: #1c1929;
+            --text-muted: #6f6b7c;
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-inter);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(120, 80, 250, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(240, 80, 180, 0.08) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: rgba(10, 8, 20, 0.85);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: var(--font-outfit);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .logo i {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-accent {
+            color: hsl(310, 85%, 55%);
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-item.active {
+            background: rgba(120, 80, 250, 0.15);
+            border-color: rgba(120, 80, 250, 0.2);
+            color: var(--text-main);
+        }
+
+        .nav-item i {
+            font-size: 1.1rem;
+            width: 24px;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            width: fit-content;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-indicator.online {
+            background: var(--success);
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        .status-indicator.offline {
+            background: var(--danger);
+            box-shadow: 0 0 10px var(--danger);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 2.5rem 3rem;
+            max-width: 1400px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header-title h1 {
+            font-family: var(--font-outfit);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .header-title p {
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: var(--primary-gradient);
+            border: none;
+            color: var(--text-main);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: var(--font-outfit);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(120, 80, 250, 0.25);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(120, 80, 250, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: none;
+        }
+
+        /* Stat Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.8rem;
+            border-radius: 18px;
+            box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-gradient);
+        }
+
+        .stat-info h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .stat-info .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: var(--font-outfit);
+            margin-top: 0.5rem;
+        }
+
+        .stat-icon {
+            font-size: 2.2rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.8;
+        }
+
+        /* Dashboard View Container */
+        .dashboard-view {
+            display: none;
+        }
+
+        .dashboard-view.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Grid Layout for dashboard charts & logs */
+        .view-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .view-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 1.8rem;
+            box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(12px);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .panel-header h2 {
+            font-family: var(--font-outfit);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            padding: 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1.1rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.9rem;
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .ticket-badge {
+            font-family: monospace;
+            background: rgba(120, 80, 250, 0.15);
+            border: 1px solid rgba(120, 80, 250, 0.3);
+            color: #d1c7f7;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .event-badge {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .btn-action {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-action:hover {
+            background: rgba(235, 87, 87, 0.1);
+            color: var(--danger);
+            border-color: rgba(235, 87, 87, 0.3);
+        }
+
+        /* Event breakdown breakdown list */
+        .breakdown-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .breakdown-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .breakdown-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .breakdown-label {
+            font-weight: 500;
+        }
+
+        .breakdown-count {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .progress-bar-bg {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Search input */
+        .search-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+            width: 300px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            padding: 0.7rem 1rem 0.7rem 2.5rem;
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 0 3px rgba(120, 80, 250, 0.15);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contact logs items */
+        .inquiry-card {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 0.5rem;
+        }
+
+        .inquiry-card:last-child {
+            border-bottom: none;
+        }
+
+        .inquiry-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .inquiry-author {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .inquiry-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .inquiry-subject {
+            font-weight: 500;
+            color: hsl(310, 85%, 65%);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .inquiry-body {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Empty state styling */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 3, 10, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-card {
+            background: #0f0c1b;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            padding: 2.2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            transform: scale(0.9);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-title {
+            font-family: var(--font-outfit);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .modal-title i {
+            color: var(--danger);
+        }
+
+        .modal-body {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.8rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            box-shadow: 0 4px 15px rgba(235, 87, 87, 0.25);
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 6px 20px rgba(235, 87, 87, 0.4);
+        }
+
+        /* LOGIN PORTAL STYLES */
+        .login-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            padding: 2.5rem;
+            box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(12px);
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .login-group {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .login-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 0 3px rgba(120, 80, 250, 0.15);
+        }
+
+        .login-error {
+            color: var(--danger);
+            font-size: 0.85rem;
+            text-align: left;
+            margin-bottom: 1.2rem;
+            min-height: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* LIGHT THEME OVERRIDES */
+        [data-theme="light"] body {
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(120, 80, 250, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(240, 80, 180, 0.04) 0%, transparent 45%);
+        }
+
+        [data-theme="light"] .sidebar {
+            background: rgba(255, 255, 255, 0.85);
+            border-right: 1px solid var(--border-color);
+        }
+
+        [data-theme="light"] .nav-item:hover {
+            background: rgba(0, 0, 0, 0.03);
+            color: var(--text-main);
+        }
+
+        [data-theme="light"] .nav-item.active {
+            background: rgba(120, 80, 250, 0.1);
+            color: var(--primary);
+        }
+
+        [data-theme="light"] .search-input,
+        [data-theme="light"] .login-input {
+            background: rgba(0, 0, 0, 0.03);
+            color: #1c1929;
+        }
+
+        [data-theme="light"] .search-input:focus,
+        [data-theme="light"] .login-input:focus {
+            background: rgba(0, 0, 0, 0.01);
+        }
+
+        [data-theme="light"] tr:hover td {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        [data-theme="light"] .inquiry-body {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        [data-theme="light"] .status-badge {
+            background: rgba(0, 0, 0, 0.02);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGIN CONTAINER -->
+    <div id="loginWrapper" class="login-wrapper">
+        <div class="login-card">
+            <h2 style="font-family: var(--font-outfit); font-size: 1.8rem; margin-bottom: 0.5rem;">
+                <span style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;">Admin Access</span>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">Please enter your credentials to open the dashboard.</p>
+            
+            <form id="loginForm">
+                <div class="login-group">
+                    <label for="loginUsername"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="loginUsername" class="login-input" required placeholder="admin">
+                </div>
+                <div class="login-group">
+                    <label for="loginPassword"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="loginPassword" class="login-input" required placeholder="••••••••">
+                </div>
+                
+                <div id="loginError" class="login-error"></div>
+                
+                <button type="submit" class="btn" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 1rem;">
+                    <i class="fas fa-sign-in-alt"></i> Access Dashboard
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN DASHBOARD CONTENT (Hidden until logged in) -->
+    <div id="dashboardWrapper" style="display: none; width: 100%;">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-bolt"></i>
+            <span>TIS<span class="logo-accent">2025</span></span>
+        </a>
+
+        <ul class="nav-menu">
+            <li>
+                <a class="nav-item active" data-view="overview">
+                    <i class="fas fa-chart-line"></i> Overview
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" data-view="registrations">
+                    <i class="fas fa-user-friends"></i> Registrations
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" data-view="inquiries">
+                    <i class="fas fa-envelope-open-text"></i> Inquiries
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" id="logoutBtn" style="color: var(--danger); margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); border-radius: 0; padding-top: 1.5rem;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <div class="status-badge">
+                <span class="status-indicator online" id="connIndicator"></span>
+                <span id="connStatus">Server Online</span>
+            </div>
+            <div class="status-badge" style="font-size: 0.75rem; border-color: rgba(120,80,250,0.2);">
+                <i class="fas fa-database" style="width:14px; color:var(--primary);"></i>
+                <span id="dbType">Checking DB...</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <header>
+            <div class="header-title">
+                <h1 id="viewTitle">Dashboard Overview</h1>
+                <p id="viewSubtitle">Real-time statistics and analytics for Tech Innovation Summit 2025.</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-outline" id="refreshBtn">
+                    <i class="fas fa-sync-alt"></i> Refresh Data
+                </button>
+            </div>
+        </header>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>Total Attendees</h3>
+                    <div class="stat-value" id="statTotalReg">0</div>
+                </div>
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>Inquiries Inbox</h3>
+                    <div class="stat-value" id="statTotalContacts">0</div>
+                </div>
+                <div class="stat-icon"><i class="fas fa-envelope-open-text"></i></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>Registered Events</h3>
+                    <div class="stat-value" id="statUniqueEvents">0</div>
+                </div>
+                <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 1: OVERVIEW ==================== -->
+        <div class="dashboard-view active" id="view-overview">
+            <div class="view-row">
+                <!-- Recent Registrations Preview -->
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h2>Recent Registrations</h2>
+                        <button class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; border-radius: 8px;" onclick="switchTab('registrations')">
+                            View All <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Attendee</th>
+                                    <th>Event Selected</th>
+                                    <th>Ticket Code</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentRegTable">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Event Breakdown Visual List -->
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h2>Event Breakdown</h2>
+                    </div>
+                    <div class="breakdown-list" id="eventBreakdownContainer">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 2: REGISTRATIONS ==================== -->
+        <div class="dashboard-view" id="view-registrations">
+            <div class="panel-card">
+                <div class="panel-header" style="flex-wrap: wrap; gap: 1rem;">
+                    <h2>All Registrations</h2>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-input" id="regSearchInput" placeholder="Search by name, email, ticket...">
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Organization</th>
+                                <th>Event Type</th>
+                                <th>Ticket</th>
+                                <th>Registered At</th>
+                                <th style="text-align: center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="allRegTable">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 3: INQUIRIES ==================== -->
+        <div class="dashboard-view" id="view-inquiries">
+            <div class="panel-card" style="max-width: 900px;">
+                <div class="panel-header">
+                    <h2>Messages Inbox</h2>
+                </div>
+                <div id="inquiriesContainer">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- CANCELLATION CONFIRMATION MODAL -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-card">
+            <div class="modal-title">
+                <i class="fas fa-exclamation-triangle"></i> Cancel Registration
+            </div>
+            <div class="modal-body">
+                Are you sure you want to cancel and delete this event registration? This action is permanent and cannot be undone.
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="modalCancelBtn" style="padding: 0.6rem 1.2rem;">Keep Registration</button>
+                <button class="btn btn-danger" id="modalConfirmBtn" style="padding: 0.6rem 1.2rem;">Cancel Registration</button>
+            </div>
+        </div>
+    </div>
+    </div> <!-- END dashboardWrapper -->
+
+    <!-- MAIN BACKEND CLIENT LOGIC -->
+    <script>
+        // Apply theme immediately on script load to prevent flicker
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('tis-theme') || 'dark');
+
+        const API_BASE = 'http://localhost:5000/api';
+        let registrationsList = [];
+        let statsObject = {};
+        let inquiriesList = [];
+        let targetDeleteId = null;
+
+        // View configuration mapping
+        const viewConfigs = {
+            overview: {
+                title: 'Dashboard Overview',
+                subtitle: 'Real-time statistics and analytics for Tech Innovation Summit 2025.'
+            },
+            registrations: {
+                title: 'Manage Registrations',
+                subtitle: 'View, filter, and cancel attendee registrations.'
+            },
+            inquiries: {
+                title: 'Contact Inquiries',
+                subtitle: 'Inbox for guest questions, support requests, and feedback.'
+            }
+        };
+
+        const eventNames = {
+            'full-day': 'Full Day Pass',
+            'ai-workshop': 'AI & LLM Workshop',
+            'cybersecurity-ctf': 'Cybersecurity CTF',
+            'startup-pitch': 'Startup Pitch Competition',
+            'networking-only': 'Networking & After-Party'
+        };
+
+        // Navigation switching
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const view = item.getAttribute('data-view');
+                switchTab(view);
+            });
+        });
+
+        function switchTab(view) {
+            // Update active states in sidebar
+            document.querySelectorAll('.nav-item').forEach(nav => {
+                nav.classList.toggle('active', nav.getAttribute('data-view') === view);
+            });
+
+            // Update visible views
+            document.querySelectorAll('.dashboard-view').forEach(panel => {
+                panel.classList.toggle('active', panel.id === `view-${view}`);
+            });
+
+            // Update title strings
+            const config = viewConfigs[view] || viewConfigs.overview;
+            document.getElementById('viewTitle').textContent = config.title;
+            document.getElementById('viewSubtitle').textContent = config.subtitle;
+        }
+
+        // Fetch all statistics and populate dashboard
+        async function fetchDashboardStats() {
+            try {
+                const response = await fetch(`${API_BASE}/admin/stats`);
+                if (!response.ok) throw new Error('API server status check failed');
+                
+                statsObject = await response.json();
+                
+                // Set stat values
+                document.getElementById('statTotalReg').textContent = statsObject.total_registrations || 0;
+                document.getElementById('statTotalContacts').textContent = statsObject.total_contacts || 0;
+                
+                // Count unique event categories with registrations
+                const uniqueEventsCount = Object.keys(statsObject.event_breakdown || {}).length;
+                document.getElementById('statUniqueEvents').textContent = uniqueEventsCount;
+
+                // Set server connection status badge
+                updateServerStatus(true);
+                
+                // Render event breakdown visualization
+                renderEventBreakdown(statsObject.event_breakdown, statsObject.total_registrations);
+            } catch (err) {
+                console.error('Error fetching dashboard stats:', err);
+                updateServerStatus(false);
+            }
+        }
+
+        function updateServerStatus(isOnline) {
+            const indicator = document.getElementById('connIndicator');
+            const label = document.getElementById('connStatus');
+            const dbType = document.getElementById('dbType');
+
+            if (isOnline) {
+                indicator.className = 'status-indicator online';
+                label.textContent = 'Server Online';
+                
+                // Fetch status endpoint to get db type
+                fetch(`${API_BASE}/status`)
+                    .then(res => res.json())
+                    .then(statusData => {
+                        dbType.textContent = statusData.database || 'MySQL';
+                    })
+                    .catch(() => {
+                        dbType.textContent = 'MySQL / SQLite';
+                    });
+            } else {
+                indicator.className = 'status-indicator offline';
+                label.textContent = 'Server Offline';
+                dbType.textContent = 'Disconnected';
+            }
+        }
+
+        // Render event breakdown progress list
+        function renderEventBreakdown(breakdown = {}, total = 0) {
+            const container = document.getElementById('eventBreakdownContainer');
+            container.innerHTML = '';
+            
+            if (!breakdown || Object.keys(breakdown).length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state" style="padding: 1rem 0;">
+                        <p style="font-size:0.9rem;">No data registered yet.</p>
+                    </div>`;
+                return;
+            }
+
+            Object.entries(breakdown).forEach(([key, count]) => {
+                const label = eventNames[key] || key;
+                const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
+                
+                const item = document.createElement('div');
+                item.className = 'breakdown-item';
+                item.innerHTML = `
+                    <div class="breakdown-info">
+                        <span class="breakdown-label">${label}</span>
+                        <span class="breakdown-count">${count} (${percentage}%)</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: ${percentage}%"></div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Fetch and render all registrations list
+        async function fetchRegistrations() {
+            try {
+                const response = await fetch(`${API_BASE}/admin/registrations`);
+                if (!response.ok) throw new Error('API server status check failed');
+                
+                registrationsList = await response.json();
+                
+                renderRegistrations(registrationsList);
+                renderRecentRegistrations(registrationsList.slice(0, 5)); // show max 5 on overview dashboard
+            } catch (err) {
+                console.error('Error fetching registrations:', err);
+            }
+        }
+
+        function formatDateTime(isoString) {
+            if (!isoString) return 'N/A';
+            const date = new Date(isoString);
+            return date.toLocaleDateString('en-IN', {
+                day: '2-digit',
+                month: 'short',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Render registrations into tables
+        function renderRegistrations(list) {
+            const allTable = document.getElementById('allRegTable');
+            allTable.innerHTML = '';
+
+            if (list.length === 0) {
+                allTable.innerHTML = `
+                    <tr>
+                        <td colspan="8">
+                            <div class="empty-state">
+                                <i class="fas fa-user-slash"></i>
+                                <p>No attendee registrations found.</p>
+                            </div>
+                        </td>
+                    </tr>`;
+                return;
+            }
+
+            list.forEach(reg => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="font-weight: 600;">${escapeHtml(reg.name)}</td>
+                    <td>${escapeHtml(reg.email)}</td>
+                    <td>${escapeHtml(reg.phone)}</td>
+                    <td>${escapeHtml(reg.organization || '—')}</td>
+                    <td><span class="event-badge">${escapeHtml(eventNames[reg.event_type] || reg.event_type)}</span></td>
+                    <td><span class="ticket-badge">${escapeHtml(reg.ticket_number)}</span></td>
+                    <td style="color: var(--text-muted); font-size: 0.85rem;">${formatDateTime(reg.created_at)}</td>
+                    <td style="text-align: center;">
+                        <button class="btn-action" title="Cancel/Delete Ticket" onclick="confirmDelete(${reg.id})">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                `;
+                allTable.appendChild(tr);
+            });
+        }
+
+        function renderRecentRegistrations(list) {
+            const recentTable = document.getElementById('recentRegTable');
+            recentTable.innerHTML = '';
+
+            if (list.length === 0) {
+                recentTable.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                            No recent registrations.
+                        </td>
+                    </tr>`;
+                return;
+            }
+
+            list.forEach(reg => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="font-weight: 600;">${escapeHtml(reg.name)}</td>
+                    <td><span class="event-badge">${escapeHtml(eventNames[reg.event_type] || reg.event_type)}</span></td>
+                    <td><span class="ticket-badge">${escapeHtml(reg.ticket_number)}</span></td>
+                    <td style="color: var(--text-muted); font-size: 0.85rem;">${formatDateTime(reg.created_at)}</td>
+                `;
+                recentTable.appendChild(tr);
+            });
+        }
+
+        // Fetch and render contact messages
+        async function fetchContacts() {
+            try {
+                const response = await fetch(`${API_BASE}/admin/contacts`);
+                if (!response.ok) throw new Error('API server status check failed');
+                
+                inquiriesList = await response.json();
+                renderContacts(inquiriesList);
+            } catch (err) {
+                console.error('Error fetching contacts:', err);
+            }
+        }
+
+        function renderContacts(list) {
+            const container = document.getElementById('inquiriesContainer');
+            container.innerHTML = '';
+
+            if (list.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-envelope-open"></i>
+                        <p>No messages received yet.</p>
+                    </div>`;
+                return;
+            }
+
+            list.forEach(contact => {
+                const card = document.createElement('div');
+                card.className = 'inquiry-card';
+                card.innerHTML = `
+                    <div class="inquiry-meta">
+                        <span class="inquiry-author">${escapeHtml(contact.name)} <span style="font-weight: 400; color: var(--text-muted); font-size: 0.85rem;">(${escapeHtml(contact.email)})</span></span>
+                        <span class="inquiry-date">${formatDateTime(contact.created_at)}</span>
+                    </div>
+                    <div class="inquiry-subject">
+                        <i class="fas fa-hashtag"></i> ${escapeHtml(contact.subject)}
+                    </div>
+                    <div class="inquiry-body">
+                        ${escapeHtml(contact.message).replace(/\n/g, '<br>')}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Search/Filter function for registrations table
+        document.getElementById('regSearchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (!query) {
+                renderRegistrations(registrationsList);
+                return;
+            }
+
+            const filtered = registrationsList.filter(reg => {
+                const name = (reg.name || '').toLowerCase();
+                const email = (reg.email || '').toLowerCase();
+                const org = (reg.organization || '').toLowerCase();
+                const ticket = (reg.ticket_number || '').toLowerCase();
+                const eventName = (eventNames[reg.event_type] || reg.event_type || '').toLowerCase();
+
+                return name.includes(query) || 
+                       email.includes(query) || 
+                       org.includes(query) || 
+                       ticket.includes(query) || 
+                       eventName.includes(query);
+            });
+
+            renderRegistrations(filtered);
+        });
+
+        // Trigger confirmation modal for cancellation
+        function confirmDelete(id) {
+            targetDeleteId = id;
+            document.getElementById('confirmModal').classList.add('active');
+        }
+
+        // Confirm cancellation action
+        document.getElementById('modalConfirmBtn').addEventListener('click', async () => {
+            if (targetDeleteId === null) return;
+            try {
+                const response = await fetch(`${API_BASE}/admin/registration/${targetDeleteId}`, {
+                    method: 'DELETE'
+                });
+                if (!response.ok) throw new Error('Failed to cancel registration');
+                
+                // Hide modal and clear state
+                document.getElementById('confirmModal').classList.remove('active');
+                targetDeleteId = null;
+
+                // Reload data
+                await reloadAllData();
+            } catch (err) {
+                alert('Error cancelling registration: ' + err.message);
+                console.error(err);
+            }
+        });
+
+        document.getElementById('modalCancelBtn').addEventListener('click', () => {
+            document.getElementById('confirmModal').classList.remove('active');
+            targetDeleteId = null;
+        });
+
+        // Click outside modal to close
+        document.getElementById('confirmModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('confirmModal')) {
+                document.getElementById('confirmModal').classList.remove('active');
+                targetDeleteId = null;
+            }
+        });
+
+        // Escape key to close modal
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('confirmModal').classList.remove('active');
+                targetDeleteId = null;
+            }
+        });
+
+        // Reload all data
+        async function reloadAllData() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            const originalHTML = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
+            refreshBtn.disabled = true;
+
+            await fetchDashboardStats();
+            await fetchRegistrations();
+            await fetchContacts();
+
+            setTimeout(() => {
+                refreshBtn.innerHTML = originalHTML;
+                refreshBtn.disabled = false;
+            }, 500);
+        }
+
+        // HTML escaping to prevent XSS
+        function escapeHtml(text) {
+            if (!text) return '';
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        document.getElementById('refreshBtn').addEventListener('click', reloadAllData);
+
+        // --- AUTHENTICATION & LOGIN LOGIC ---
+        const loginWrapper = document.getElementById('loginWrapper');
+        const dashboardWrapper = document.getElementById('dashboardWrapper');
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+
+        function checkAuth() {
+            const token = sessionStorage.getItem('adminToken');
+            if (token === 'mock-admin-session-token') {
+                loginWrapper.style.display = 'none';
+                dashboardWrapper.style.display = 'block';
+                reloadAllData();
+            } else {
+                loginWrapper.style.display = 'flex';
+                dashboardWrapper.style.display = 'none';
+            }
+        }
+
+        // Login Submit Handler
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loginError.innerHTML = '';
+            
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch(`${API_BASE}/admin/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.error || 'Invalid username or password');
+                }
+
+                // Save session token
+                sessionStorage.setItem('adminToken', data.token);
+                
+                // Toggle display and fetch dashboard data
+                checkAuth();
+                
+                // Reset form
+                loginForm.reset();
+            } catch (err) {
+                console.error(err);
+                loginError.innerHTML = `<i class="fas fa-times-circle"></i> ${err.message}`;
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Logout Handler
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            sessionStorage.removeItem('adminToken');
+            window.location.reload();
+        });
+
+        // Load initially with auth check
+        window.addEventListener('DOMContentLoaded', checkAuth);
+    </script>
+</body>
+</html>
